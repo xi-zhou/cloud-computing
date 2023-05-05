@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  nodejs:
+    build:
+      context: /Users/z.x/github/cloud-computing/exercise01
+      dockerfile: Dockerfile.nodejs
+    volumes:
+      - .:/exercise01
+    working_dir: /exercise01
+    ports:
+      - "80:80"
+    depends_on:
+      - mongodb
+  mongodb:
+    image: "mongo:latest"
+    command: mongod --dbpath=./data
+    ports:
+      - "27017:27017"
+    volumes:
+      - /Users/z.x/github/cloud-computing/data:/data:rw

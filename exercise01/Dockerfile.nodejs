@@ -1,0 +1,12 @@
+FROM ubuntu:18.04
+RUN apt-get update && \
+    apt-get install -y nodejs npm build-essential
+WORKDIR /exercise01
+COPY . .
+RUN npm install
+
+EXPOSE 80
+
+#CMD [ "mongod", "--dbpath=./data" ]
+
+CMD [ "node", "server.js" ]
