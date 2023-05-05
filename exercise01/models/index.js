@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
 mongoose.connect( process.env.MONGODB_URI ||
-    "mongodb://localhost:27017/booksData",{ useNewUrlParser: true });
+    "mongodb://20.31.133.140:27017/booksData",{ useNewUrlParser: true });
 
 module.exports.books = require("./books.js");
