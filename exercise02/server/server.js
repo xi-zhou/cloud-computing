@@ -44,23 +44,23 @@ app.get('/api', (req, res) => {
       {method: 'POST', path: '/api/books/', description: 'Insert a new book information'},
       {method: 'PUT', path: '/api/books/', description: 'Update a book information, based on id'},
       {method: 'DELETE', path: '/api/books/', description: 'Delete a book information, based on id'},
-      // TODO: Write other API end-points description here like above
+      {method: 'GET', path: '/api/exercise2', description: 'Exercise 2 endpoint description'},
     ]
   })
 });
 
 app.get('/api/profile', (req, res) => {
   res.json({
-    'name': 'John',
-    'homeCountry': 'Winterfell',
-    'degreeProgram': 'Night\'s Watch',//informatics or CSE.. etc
-    'email': 'john@got.com',
+    'name': 'Xi Zhou',
+    'homeCountry': 'disneyland',
+    'degreeProgram': '',//informatics or CSE.. etc
+    'email': 'xxi.zhou@tum.de',
     'deployedURLLink': '',//leave this blank for the first exercise
     'apiDocumentationURL': '', //leave this also blank for the first exercise
-    'currentCity': 'The Wall',
-    'hobbies': ['Fight White Walkers']
+    'currentCity': 'de',
+    'hobbies': 'slepping'
 
-  });
+  })
 });
 /*
  * Get All books information
@@ -139,7 +139,13 @@ app.delete('/api/books/:id', (req, res) => {
     res.json(deletedBook);
   });
 });
-// TODO:  Add API end point /api/exercise2
+
+/*
+ * Add API end point /api/exercise2
+ */
+app.get('/api/exercise2', (req, res) => {
+  res.send('group 16 application deployed using docker');
+});
 /**********
  * SERVER *
  **********/
