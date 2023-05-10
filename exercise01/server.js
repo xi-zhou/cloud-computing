@@ -85,20 +85,17 @@ app.post('/api/books/', (req, res) => {
    * New Book information in req.body
    */
   console.log(req.body);
-  const { title, author, releaseDate, genre, rating, language } = req.body;
-
-  // Create a new instance of the Book model with the extracted data
-  const newBook = new db.books({
-    title, author, releaseDate, genre, rating, language
-  });
-
-  //var newBook = new books ({req.body  });
-
-  newBook.save(function (err, book) {
+  /*
+     * use the books model and create a new object
+     * with the information in req.body
+     */
+  db.books.create(req.body, (err, newBook) => {
     if (err) throw err;
-    res.json(book);
+    /*
+     * return the new book information object as json
+     */
+    res.json(newBook);
   });
-
 
 });
 
